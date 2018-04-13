@@ -37,22 +37,5 @@ public class FilterConfig extends WebMvcConfigurerAdapter{
         return new CorsFilter ();
     };
 
-    @Bean
-    public FilterRegistrationBean filterVerifyReg(){
-        FilterRegistrationBean registration = new FilterRegistrationBean();
-        //注入过滤器
-        registration.setFilter(verifyFilter ());
-        //拦截规则
-        registration.addUrlPatterns("/*");
-        //过滤器名称
-        registration.setName("signFilter");
-        //过滤器顺序
-        registration.setOrder(Ordered.HIGHEST_PRECEDENCE);
-        return registration;
-    }
 
-    @Bean
-    public Filter verifyFilter() {
-        return new VerifyFilter ();
-    }
 }
